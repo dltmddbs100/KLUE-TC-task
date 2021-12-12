@@ -1,16 +1,19 @@
 [![main](https://user-images.githubusercontent.com/55730591/145703432-3c949e4a-6da1-4d28-9144-ddf3030b1128.png)](https://www.dacon.io/competitions/official/235747/overview/description)
 
-    기간 : 2021.06.30 ~ 2021.08.09 
+     기간 : 2021.06.30 ~ 2021.08.09 
+     멤버 : 이승윤(kerry)
+     결과 : 3 / 647 - 최종 3위
 
-    멤버 : 이승윤(kerry)
+     한국의 kaggle이라고 불리는 AI 경진대회인 Dacon에서 주최한 뉴스 토픽 분류 AI 경진대회에서 최종 3위를 기록했습니다. 
+     이 대회는 **KLUE(Korean Language Understanding Evaluation)** 에서 제공하는 8가지 task 중 TC(Topic classification)에 해당하는 
+     ynat data를 사용한 대회로 총 7가지의 target value를 갖고있습니다. 데이터는 Naver 연합뉴스 기사 제목으로 구성되어있으며 전체 데이터는 
+     약 6만건으로 구성되어있는 text data에 해당합니다. 
 
-    결과 : 3 / 647 - 최종 3위
+     평가 방식은 kaggle과 유사합니다. 제공된 train, test set을 사용하여 test set을 예측하여 Accuracy를 평가합니다. 
+     이는 Public score에 해당하며, 대회가 종료된 후 별도의 private test set을 사용해 재평가하는 과정을 거칩니다. 
+     최종 결과는 대회에서 제공되지 않은 이 private test set을 이용해 평가되며 대회 종료 후 최종 score와 순위가 공개됩니다.
 
-     한국의 kaggle이라고 불리는 AI 경진대회인 Dacon에서 주최한 뉴스 토픽 분류 AI 경진대회에서 최종 3위를 기록했습니다. 이 대회는 **KLUE(Korean Language Understanding Evaluation)** 에서     제공하는 8가지 task 중 TC(Topic classification)에 해당하는 ynat data를 사용한 대회로 총 7가지의 target value를 갖고있습니다. 데이터는 Naver 연합뉴스 기사 제목으로 구성되어있으며 전체     데이터는 약 6만건으로 구성되어있는 text data에 해당합니다. 
-
-    평가 방식은 kaggle과 유사합니다. 제공된 train, test set을 사용하여 test set을 예측하여 Accuracy를 평가합니다. 이는 Public score에 해당하며, 대회가 종료된 후 별도의 private test set     을 사용해 재평가하는 과정을 거칩니다. 최종 결과는 대회에서 제공되지 않은 이 private test set을 이용해 평가되며 대회 종료 후 최종 score와 순위가 공개됩니다.
-
-    최종적으로 저는 해당 대회에서 3위를 기록하였습니다. 이를 바탕으로 여기서 대회에 참여한 약 한달간의 분석 과정 및 후기를 공유합니다. 
+     최종적으로 저는 해당 대회에서 3위를 기록하였습니다. 이를 바탕으로 여기서 대회에 참여한 약 한달간의 분석 과정 및 후기를 공유합니다. 
 <br/>
 <br/>
 
