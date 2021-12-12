@@ -49,8 +49,8 @@
 
  DA를 위해 여러가지 논문 및 코드들을 서칭하였고 특히 text classification task에 적용할 수 있는 것들은 많지 않았습니다(주로 Machine Translation에서 사용되는 경우가 많습니다). 이 과정에서 제가 찾은 여러가지 DA 기법들입니다.
 
-> EDA: Easy Data Augmentation Techniques for Boosting Performance on Text Classification Tasks[  
-> ](https://arxiv.org/abs/1901.11196)[https://arxiv.org/abs/1901.11196](https://arxiv.org/abs/1901.11196)
+> EDA: Easy Data Augmentation Techniques for Boosting Performance on Text Classification Tasks
+> [https://arxiv.org/abs/1901.11196](https://arxiv.org/abs/1901.11196)
 
 > Data augmentation Toolkit for Korean text  
 > [https://github.com/jucho2725/ktextaug](https://github.com/jucho2725/ktextaug)
@@ -67,12 +67,6 @@
 
 > **Understanding Back-Translation at Scale**  
 > [https://arxiv.org/abs/1808.09381](https://arxiv.org/abs/1808.09381)
-
- [Understanding Back-Translation at Scale
-
-An effective method to improve neural machine translation with monolingual data is to augment the parallel training corpus with back-translations of target language sentences. This work broadens the understanding of back-translation and investigates a numb
-
-arxiv.org](https://arxiv.org/abs/1808.09381)
 
 ※ 위 논문은 BT를 소개한 논문이 아닌 효과적인 BT의 적용을 위한 조건들을 실험한 결과를 보여주는 논문입니다.
 
