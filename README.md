@@ -18,12 +18,14 @@
      이를 바탕으로 여기서 대회에 참여한 약 한달간의 분석 과정 및 후기를 공유합니다. 
 <br/>
 
+
 | Model | Back translation | Public score | Private score |
 | ---------- | :---------: | :----------: | :----------: |
 | KE-T5-Encoder | N | 0.8556407448 | - |
 | KLUE-BERT-base | N | 0.8692223439 | - |
 | KLUE-RoBERTa-large | N | **0.8742606791** | 0.8307052124 | 
 | KLUE-RoBERTa-large | Y | 0.8736035049 | **0.8370565046** |
+<br/>
 
 
 ### **Instruction**
