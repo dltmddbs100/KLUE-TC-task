@@ -11,7 +11,7 @@
  평가 방식은 kaggle과 유사합니다. 제공된 train, test set을 사용하여 test set을 예측하여 Accuracy를 평가합니다. 이는 Public score에 해당하며, 대회가 종료된 후 별도의 private test set을 사용해 재평가하는 과정을 거칩니다. 최종 결과는 대회에서 제공되지 않은 이 private test set을 이용해 평가되며 대회 종료 후 최종 score와 순위가 공개됩니다.
 
  최종적으로 저는 해당 대회에서 3위를 기록하였습니다. 이를 바탕으로 여기서 대회에 참여한 약 한달간의 분석 과정 및 후기를 공유합니다. 
-
+<br/>
 
 
 ### **Instruction**
