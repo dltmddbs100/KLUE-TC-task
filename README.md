@@ -1,7 +1,9 @@
 ![main](https://user-images.githubusercontent.com/55730591/145703432-3c949e4a-6da1-4d28-9144-ddf3030b1128.png)
 
 기간 : 2021.06.30 ~ 2021.08.09 
+
 멤버 : 이승윤(kerry)
+
 결과 : 3 / 647 - 최종 3위
 
  한국의 kaggle이라고 불리는 AI 경진대회인 Dacon에서 주최한 뉴스 토픽 분류 AI 경진대회에서 최종 3위를 기록했습니다. 이 대회는 **KLUE(Korean Language Understanding Evaluation)**에서 제공하는 8가지 task 중 TC(Topic classification)에 해당하는 ynat data를 사용한 대회로 총 7가지의 target value를 갖고있습니다. 데이터는 Naver 연합뉴스 기사 제목으로 구성되어있으며 전체 데이터는 약 6만건으로 구성되어있는 text data에 해당합니다. 
@@ -76,7 +78,7 @@
 
  해당 방법을 사용하려면 번역기의 구축이 필요합니다. 하지만 분류문제를 위해 새로운 번역 모델을 만드는 것은 매우 비효율적인 일입니다. 따라서 기존에 구축되어 있는 번역기를 활용했습니다. 방법은 다음과 같습니다.
 
-[##_Image|kage@bkU1Nb/btrcONHRXAx/LZkkRWSnASgGOUhTvqhkV1/img.png|CDM|1.3|{"originWidth":805,"originHeight":288,"style":"alignCenter","width":676,"height":242}_##]
+![bt](https://user-images.githubusercontent.com/55730591/145703488-67abf180-9b26-4459-ac4e-75038097b975.png)
 
 1.  **구축된 번역기를 통해 train data의 text를 타 언어로 번역합니다.**
 2.  **타 언어로 번역된 text를 다시 한국어로 번역합니다.**
@@ -104,7 +106,7 @@
 
  위와 같은 기준으로 재번역대상을 정의하고 Papago로 재번역한뒤, 그럼에도 불구하고 제대로 번역되지 않는 문장들은 kakao brain에서 제공하는 Pororo를 이용해 번역하여 모든 train set에 대한 번역을 완료했습니다.
 
-[##_Image|kage@qvBZN/btrcVkrJljv/e27losEkIfkuhpm8laxUT1/img.png|CDM|1.3|{"originWidth":1016,"originHeight":150,"style":"alignCenter"}_##]
+![case](https://user-images.githubusercontent.com/55730591/145703501-560ac6a6-b84d-4bc8-a05b-b3f577363e37.png)
 
   결과적으로 의미는 유사하지만 사용되는 단어 종류나 위치가 다른 새로운 문장들이 생성되었습니다. 그러나 한 가지 치명적인 문제에 직면했는데, 이는 '문장의 결' 즉 뉘앙스가 다르다는 점입니다. 생성된 문장들은 대체적으로 원본 문장에비해 길이가 아주 긴 특징을 가졌습니다. 원본 뉴스 문장은 주로 명사로 끝나거나 '..임' , '..했음', '..로 보여' 등 문장이 완성되어있지 않은 경우가 많은 반면, 번역된 문장은 대부분 '..했다', '..합니다' 등으로 완성형 문장으로 끝나기 때문에 길이가 길어진 것입니다. 또한 원문에서는 사용되지 않은 특수문자들도 포함되었고 특수문자가 사용되는 규칙도 달랐습니다.
 
