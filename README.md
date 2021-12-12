@@ -20,6 +20,7 @@
 
 
 | Model | Back translation | Public score | Private score |
+| ---------- | :--------- | :----------: | ----------: |
 | KE-T5-Encoder | N | 0.8556407448 | - |
 | KLUE-BERT-base | N | 0.8692223439 | - |
 | KLUE-RoBERTa-large | N | **0.8742606791** | 0.8307052124 | 
