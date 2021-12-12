@@ -16,24 +16,14 @@
 
      최종적으로 저는 해당 대회에서 3위를 기록하였습니다. 
      이를 바탕으로 여기서 대회에 참여한 약 한달간의 분석 과정 및 후기를 공유합니다. 
-
-
+<br/>
 
 | Model | Back translation | Public score | Private score |
-| ---------- | :--------- | :----------: | ----------: |
+| ---------- | :---------: | :----------: | :----------: |
 | KE-T5-Encoder | N | 0.8556407448 | - |
 | KLUE-BERT-base | N | 0.8692223439 | - |
 | KLUE-RoBERTa-large | N | **0.8742606791** | 0.8307052124 | 
 | KLUE-RoBERTa-large | Y | 0.8736035049 | **0.8370565046** |
-
-
-
-
-|  <center>Header1</center> |  <center>Header2</center> |  <center>Header3</center> |
-|:--------|:--------:|--------:|
-|**cell 1x1** | <center>cell 1x2 </center> |*cell 1x3* |
-|**cell 2x1** | <center>cell 2x2 </center> |*cell 2x3* |
-|**cell 3x1** | <center>cell 3x2 </center> |*cell 3x3* |
 
 
 ### **Instruction**
