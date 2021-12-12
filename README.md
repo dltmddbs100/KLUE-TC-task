@@ -1,16 +1,15 @@
-[##_Image|kage@J37Kg/btrlDfxhJNo/dMf2VnWA2yMqACku6sHh60/img.png|CDM|1.3|{"originWidth":1194,"originHeight":227,"style":"alignCenter","link":"https://www.dacon.io/competitions/official/235747/overview/description","isLinkNewWindow":true}_##]
+
 
 기간 : 2021.06.30 ~ 2021.08.09 
-
 멤버 : 이승윤(kerry)
-
 결과 : 3 / 647 - 최종 3위
 
  한국의 kaggle이라고 불리는 AI 경진대회인 Dacon에서 주최한 뉴스 토픽 분류 AI 경진대회에서 최종 3위를 기록했습니다. 이 대회는 **KLUE(Korean Language Understanding Evaluation)**에서 제공하는 8가지 task 중 TC(Topic classification)에 해당하는 ynat data를 사용한 대회로 총 7가지의 target value를 갖고있습니다. 데이터는 Naver 연합뉴스 기사 제목으로 구성되어있으며 전체 데이터는 약 6만건으로 구성되어있는 text data에 해당합니다. 
 
  평가 방식은 kaggle과 유사합니다. 제공된 train, test set을 사용하여 test set을 예측하여 Accuracy를 평가합니다. 이는 Public score에 해당하며, 대회가 종료된 후 별도의 private test set을 사용해 재평가하는 과정을 거칩니다. 최종 결과는 대회에서 제공되지 않은 이 private test set을 이용해 평가되며 대회 종료 후 최종 score와 순위가 공개됩니다.
 
- 최종적으로 저는 해당 대회에서 3위를 기록하였습니다. 이를 바탕으로 여기서 대회에 참여한 약 한달간의 분석 과정 및 후기를 공유하고자합니다. 
+ 최종적으로 저는 해당 대회에서 3위를 기록하였습니다. 이를 바탕으로 여기서 대회에 참여한 약 한달간의 분석 과정 및 후기를 공유합니다. 
+
 
 ### **Instruction**
 
@@ -28,6 +27,7 @@
 
  해당 방법들로 어느정도 만족할만한 score가 나왔지만 추가적인 향상을 만드는 것은 매우 어려웠습니다. 이러한 상황에서 저는 두가지에 주목했습니다. **바로 large model의 탐색과 data augmentation입니다.** 
 
+
 ### **Main technique**
 
 ---
@@ -39,6 +39,7 @@
  그 과정에서 KoElectra, KcBERT 등을 시도해보았으나, 개선되지 않았습니다. XLNET, T5Encoder model, xlm-roberta 등의 모델들을 사용해본적은 없었으나 huggingface 공식문서를 뒤져가며 다양하게 학습을 시도했으나 오히려 KoBERT보다 좋지 못했습니다. 
 
  이러한 과정을 반복하던 중 최종적으로 찾은 모델은 klue-roberta-model입니다. 언급했듯이 KLUE는 최초의 Korean Bench Mark Dataset으로 공식 github와 그에 대한 논문이 존재합니다. 확인해본 결과, klue-roberta-model은 더 많은 데이터를 기반으로 학습하였으며 vocab size도 32,000여개로 충분했습니다. 대회가 몇일 남지 않은 시점에서, 이를 통해 급격한 성능의 향상을 가져올 수 있었습니다.
+
 
 **< Data Augmentation >**
 
@@ -93,6 +94,7 @@ arxiv.org](https://arxiv.org/abs/1808.09381)
 
  여기까지는 BT에 대한 전반적인 활용 방안을 말씀드렸다면, 부가적으로 실제 데이터에 있어서는 어떤방식으로 적용했는지와 실제로 적용하면서 생긴 문제점들에 대해 고심했던 점들을 구체적으로 설명해드리고자합니다.
 
+
 **< More details >**
 
   BT를 활용하기 위해서는 구축되어있는 번역기가 필요합니다. 대표적으로 Papago, google, kakao i 등의 범용적으로 사용되는 번역기가 존재합니다. 결론부터 말씀드리자면 저는 두 가지 번역기를 사용했습니다. Papago와 kakao brain에서 제공하는 Pororo 입니다. 간략하게 선택한 이유를 말씀드리자면, 여러가지 문장들을 번역기에 넣고 비교해본 결과 Papago의 번역성능이 더 높다고 판단했으며, 원문의 특수문자의 위치나 문장안에있는 모종의 규칙들을 가장 잘 보존하는 것으로 보였기 때문입니다.
@@ -116,6 +118,7 @@ arxiv.org](https://arxiv.org/abs/1808.09381)
 
 비록 완벽하게 원본 문장이 가지는 규칙이나 뉘앙스와 일치시키는 것은 불가능했지만, 유의할 것으로 판단되는 대부분의 경우들을 고려해 정제를 마쳤습니다.
 
+
 ### **What else?**
 
 ---
@@ -134,11 +137,13 @@ arxiv.org](https://arxiv.org/abs/1808.09381)
 
  교차검증을 의미하는, 흔히 CV라고 부르는 검증전략의 선택은 매우 중요합니다. 여기서는 target value가 총 7개로 확인해본결과 클래스가 균등하지 않은, Class imbalanced problem에 해당합니다. 따라서 검증 전략에 있어서 Stratified K-fold가 적합하다고 판단했으며 모델 학습시 5-fold를 사용해 각 fold에 대해 학습하고, test set에 대해 예측한 probability들을 average하는 일종의 단일모델 stacking으로써 활용하였습니다. 특출난 방법은 아니지만, 해당 전략을 통해 유의미한 성능의 개선이 이루어지는 것을 보고 이후 모든 모델에 해당 전략을 사용했습니다.
 
+
 ### **End**
 
 ---
 
  대회를 진행하며 여러가지 우여곡절을 겪었습니다. 현역 군인신분이다보니 Google Colab을 사용할 수밖에없었는데 Runtime Error로 인해 실행했던 작업이 끊겨서 다시해야하는 상황도 직면하고 Crawling을 하다가 알 수 없는 오류로 인해 다시해야하는 경우도 생기고 OOM(Out of memory) error도 자주 겪었습니다. 특히 이런 환경적인 제약때문에 GPU에 대한 갈망이 매우 커진대회였습니다. 약 25일정도동안 집중해서 진행한 것 같은데 다행히 좋은 결과가 있어서 기쁩니다. 이번 NLP 대회를 통해 BERT를 포함한 수많은 모델들과 여러가지 DA기법들을 탐색하면서 많은 시간을 보내다보니 전부 제게 큰 자산이 된 것 같습니다. 사용한 코드와 관련 출처들을 밝히며 글을 마치겠습니다.
+
 
 #### **Reference**
 
