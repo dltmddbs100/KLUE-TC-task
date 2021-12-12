@@ -1,4 +1,4 @@
-![main](https://user-images.githubusercontent.com/55730591/145703432-3c949e4a-6da1-4d28-9144-ddf3030b1128.png)
+[![main](https://user-images.githubusercontent.com/55730591/145703432-3c949e4a-6da1-4d28-9144-ddf3030b1128.png)](https://www.dacon.io/competitions/official/235747/overview/description)
 
 기간 : 2021.06.30 ~ 2021.08.09 
 
@@ -74,7 +74,7 @@
 > **Understanding Back-Translation at Scale**  
 > [https://arxiv.org/abs/1808.09381](https://arxiv.org/abs/1808.09381)
 
-※ 위 논문은 BT를 소개한 논문이 아닌 효과적인 BT의 적용을 위한 조건들을 실험한 결과를 보여주는 논문입니다.
+#####※ 위 논문은 BT를 소개한 논문이 아닌 효과적인 BT의 적용을 위한 조건들을 실험한 결과를 보여주는 논문입니다.
 
  간단히 Back Translation을 소개하자면, **BT는 단일 corpus로부터 번역을 통해 데이터를 증강하는 일종의 DA technique**입니다. 사실 이 방법은 기계번역에서 고안되어 번역 성능을 높인 동시에, bilingual corpus가 아닌 monolingual corpus로부터 데이터를 증강하는 기법으로 소개되었습니다. 
 
@@ -155,6 +155,6 @@
 
 #### **Reference**
 
--   Code - [https://dacon.io/competitions/official/235747/codeshare/3054?page=1&dtype=recent](https://dacon.io/competitions/official/235747/codeshare/3054?page=1&dtype=recent)
+-   DACON Code - [https://dacon.io/competitions/official/235747/codeshare/3054?page=1&dtype=recent](https://dacon.io/competitions/official/235747/codeshare/3054?page=1&dtype=recent)
 -   KLUE github - [https://github.com/KLUE-benchmark/KLUE](https://github.com/KLUE-benchmark/KLUE)
 -   Back Translation - [https://deepkerry.tistory.com/17](https://deepkerry.tistory.com/17)
