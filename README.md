@@ -1,4 +1,4 @@
-
+![main](https://user-images.githubusercontent.com/55730591/145703432-3c949e4a-6da1-4d28-9144-ddf3030b1128.png)
 
 기간 : 2021.06.30 ~ 2021.08.09 
 멤버 : 이승윤(kerry)
