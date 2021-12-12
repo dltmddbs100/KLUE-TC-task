@@ -6,7 +6,7 @@
 
 결과 : 3 / 647 - 최종 3위
 
- 한국의 kaggle이라고 불리는 AI 경진대회인 Dacon에서 주최한 뉴스 토픽 분류 AI 경진대회에서 최종 3위를 기록했습니다. 이 대회는 **KLUE(Korean Language Understanding Evaluation)**에서 제공하는 8가지 task 중 TC(Topic classification)에 해당하는 ynat data를 사용한 대회로 총 7가지의 target value를 갖고있습니다. 데이터는 Naver 연합뉴스 기사 제목으로 구성되어있으며 전체 데이터는 약 6만건으로 구성되어있는 text data에 해당합니다. 
+ 한국의 kaggle이라고 불리는 AI 경진대회인 Dacon에서 주최한 뉴스 토픽 분류 AI 경진대회에서 최종 3위를 기록했습니다. 이 대회는 **KLUE(Korean Language Understanding Evaluation)** 에서 제공하는 8가지 task 중 TC(Topic classification)에 해당하는 ynat data를 사용한 대회로 총 7가지의 target value를 갖고있습니다. 데이터는 Naver 연합뉴스 기사 제목으로 구성되어있으며 전체 데이터는 약 6만건으로 구성되어있는 text data에 해당합니다. 
 
  평가 방식은 kaggle과 유사합니다. 제공된 train, test set을 사용하여 test set을 예측하여 Accuracy를 평가합니다. 이는 Public score에 해당하며, 대회가 종료된 후 별도의 private test set을 사용해 재평가하는 과정을 거칩니다. 최종 결과는 대회에서 제공되지 않은 이 private test set을 이용해 평가되며 대회 종료 후 최종 score와 순위가 공개됩니다.
 
@@ -84,9 +84,9 @@
 
 ![bt](https://user-images.githubusercontent.com/55730591/145703488-67abf180-9b26-4459-ac4e-75038097b975.png)
 
-1.  **구축된 번역기를 통해 train data의 text를 타 언어로 번역합니다.**
-2.  **타 언어로 번역된 text를 다시 한국어로 번역합니다.**
-3.  **앞선 두번의 번역을 거쳐 생성된 새로운 문장을 train data에 추가하며, 평가를 위한 validation set은 변형된 문장을 포함하지 않습니다.**
+####1.  **구축된 번역기를 통해 train data의 text를 타 언어로 번역합니다.**
+####2.  **타 언어로 번역된 text를 다시 한국어로 번역합니다.**
+####3.  **앞선 두번의 번역을 거쳐 생성된 새로운 문장을 train data에 추가하며, 평가를 위한 validation set은 변형된 문장을 포함하지 않습니다.**
 
  위 방법을 이용하여 기존 text 만큼의 문장들을 더 얻을 수 있었습니다. 두 번의 번역을 거치면서 원본 text는 조금씩 변형됩니다. 유사한 의미를 가진 동의어로 단어가 대체되기도하고, 순서가 바뀌기도하며 오히려 조금은 부자연스러운 문장들이 형성됩니다. 이렇게 **생성된 어색한 문장은 학습시 강한 train signal을 발생시키기 때문에 과적합을 줄이거나 예측력을 높이는 것에는 도움이 됩니다.** 다만 주의해야할 점은, 검증을 위한 validation set에는 변형된 문장을 포함시키면 안된다는 점입니다.
 
