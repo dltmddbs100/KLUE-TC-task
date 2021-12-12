@@ -167,7 +167,7 @@
 
 **< Stratified K-fold Average >**
 
- 교차검증을 의미하는, 흔히 CV라고 부르는 검증전략의 선택은 매우 중요합니다. 여기서는 target value가 총 7개로 확인해본결과 클래스가 균등하지 않은, Class imbalanced problem에 해당합니다.
+ 교차검증을 의미하는, 흔히 CV라고 부르는 검증전략의 선택은 매우 중요합니다. 여기서는 target value가 총 7개 중 일부 클래스에 분포가 치우쳐져있어 Class imbalanced problem에 해당합니다.
 
 따라서 검증 전략에 있어서 Stratified K-fold가 적합하다고 판단했으며 모델 학습시 5-fold를 사용해 각 fold에 대해 학습하고, test set에 대해 예측한 probability들을 average하는 일종의 단일모델 ensemble을 활용하였습니다. 특출난 방법은 아니지만, 해당 전략을 통해 유의미한 성능의 개선이 이루어지는 것을 보고 이후 모든 모델에 해당 전략을 사용했습니다.
 <br/>
