@@ -4,8 +4,8 @@
      멤버 : 이승윤(kerry)
      결과 : 3 / 647 - 최종 3위
 
-     한국의 kaggle이라고 불리는 AI 경진대회인 Dacon에서 주최한 뉴스 토픽 분류 AI 경진대회에서 최종 3위를 기록했습니다. 
-     이 대회는 KLUE(Korean Language Understanding Evaluation) 에서 제공하는 8가지 task 중 
+     Dacon에서 주최한 뉴스 토픽 분류 AI 경진대회에서 최종 3위를 기록했습니다. 
+     이 대회는 KLUE(Korean Language Understanding Evaluation)에서 제공하는 8가지 task 중 
      TC(Topic classification)에 해당하는 ynat data를 사용한 대회로 총 7가지의 target value를 갖고있습니다.
      데이터는 Naver 연합뉴스 기사 제목이며 전체 데이터는 약 6만건으로 구성되어있는 text data에 해당합니다. 
 
