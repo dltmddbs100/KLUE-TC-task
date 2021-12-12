@@ -56,7 +56,7 @@
 
  기존의 kobert를 사용한 base model에서 벗어나 다양한 모델들을 활용했습니다. 사실 base line 모델 산정 부분 부터 신경쓰이던 부분이 있었는데, 바로 pretrained model의 vocab size였습니다. SKT-KoBERT는 korean-wiki를 기반으로 학습한 모델로,  8,002개의 vocab size를 갖고있습니다. Pretrained Tokenizer로 tokenizing을 시행해본 결과 문제점이 있었는데, **vocab size가 작다보니 대다수의 유의한 단어들을 catch하지 못한다는 점과 wiki만을 기반으로 학습했다보니 news text와는 그 내용이 많이 다르다는 점**입니다. 따라서 폭 넓은 vocab를 갖고있는 한국어 모델들을 우선적으로 찾아보았습니다. 
 
-<s/>그 과정에서 KoElectra, KcBERT 등을 시도해보았으나 개선되지 않았습니다. XLNET, T5Encoder model, xlm-roberta 등의 모델들을 사용해본적은 없었으나 huggingface 공식문서를 뒤져가며 직접 fine tuning을 구현했으나 오히려 KoBERT보다 좋지 못했습니다.
+ 그 과정에서 KoElectra, KcBERT 등을 시도해보았으나 개선되지 않았습니다. XLNET, T5Encoder model, xlm-roberta 등의 모델들을 사용해본적은 없었으나 huggingface 공식문서를 뒤져가며 직접 fine tuning을 구현했으나 오히려 KoBERT보다 좋지 못했습니다.
 
  이러한 과정을 반복하던 중 최종적으로 찾은 모델은 klue-roberta-model입니다. 언급했듯이 KLUE는 최초의 Korean Bench Mark Dataset으로 공식 github와 그에 대한 논문이 존재합니다. 확인해본 결과, klue-roberta-model은 더 많은 데이터를 기반으로 학습하였으며 vocab size도 32,000여개로 충분했습니다. 대회가 몇일 남지 않은 시점에서, 이를 통해 급격한 성능의 향상을 가져올 수 있었습니다.
 
@@ -124,10 +124,10 @@
 
  언급한 오번역되는 경우는 여러가지 케이스가 존재했습니다. 지나치게 오번역되는 문장들이 학습시 포함된다면 오히려 학습을 크게 방해하는 요소로 작용할 것이 분명하기때문에 **번역된 문장의 질은 정말 중요했습니다**. 이에 따라 재번역대상의 기준을 정립했습니다.
 
-> 1\. 원본 문장에 한자가 포함되어있는 경우  
-> 2\. 번역된 문장의 한글이 차지하는 비중이 0.6이상인 경우  
-> 3\. 번역된 문장이 기존 문장의 길이에 대한 비율이 0.5이하인 경우  
-> 4\. 번역이 이뤄지지 않아 null값을 갖는 경우
+    1. 원본 문장에 한자가 포함되어있는 경우  
+    2. 번역된 문장의 한글이 차지하는 비중이 0.6 이상인 경우  
+    3. 번역된 문장이 기존 문장의 길이에 대한 비율이 0.5 이하인 경우  
+    4. 번역이 이뤄지지 않아 null값을 갖는 경우
 <br/>
 
  위와 같은 기준으로 재번역대상을 정의하고 Papago로 재번역한뒤, 그럼에도 불구하고 제대로 번역되지 않는 문장들은 kakao brain에서 제공하는 Pororo를 이용해 번역하여 모든 train set에 대한 번역을 완료했습니다.
