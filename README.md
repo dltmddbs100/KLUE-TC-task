@@ -54,7 +54,7 @@
 
 **< Model >**
 
-     기존의 kobert를 사용한 base model에서 벗어나 다양한 모델들을 활용했습니다. 사실 base line 모델 산정 부분 부터 신경쓰이던 부분이 있었는데, 바로 pretrained model의 vocab size였습니다. SKT-KoBERT는 korean-wiki를 기반으로 학습한 모델로,  8,002개의 vocab size를 갖고있습니다. Pretrained Tokenizer로 tokenizing을 시행해본 결과 문제점이 있었는데, **vocab size가 작다보니 대다수의 유의한 단어들을 catch하지 못한다는 점과 wiki만을 기반으로 학습했다보니 news text와는 그 내용이 많이 다르다는 점**입니다. 따라서 폭 넓은 vocab를 갖고있는 한국어 모델들을 우선적으로 찾아보았습니다. 
+ <br/>기존의 kobert를 사용한 base model에서 벗어나 다양한 모델들을 활용했습니다. 사실 base line 모델 산정 부분 부터 신경쓰이던 부분이 있었는데, 바로 pretrained model의 vocab size였습니다. SKT-KoBERT는 korean-wiki를 기반으로 학습한 모델로,  8,002개의 vocab size를 갖고있습니다. Pretrained Tokenizer로 tokenizing을 시행해본 결과 문제점이 있었는데, **vocab size가 작다보니 대다수의 유의한 단어들을 catch하지 못한다는 점과 wiki만을 기반으로 학습했다보니 news text와는 그 내용이 많이 다르다는 점**입니다. 따라서 폭 넓은 vocab를 갖고있는 한국어 모델들을 우선적으로 찾아보았습니다. 
 
  그 과정에서 KoElectra, KcBERT 등을 시도해보았으나 개선되지 않았습니다. XLNET, T5Encoder model, xlm-roberta 등의 모델들을 사용해본적은 없었으나 huggingface 공식문서를 뒤져가며 직접 fine tuning을 구현했으나 오히려 KoBERT보다 좋지 못했습니다.
 
