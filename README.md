@@ -19,10 +19,10 @@
 <br/>
 
 | Model                | Back translation | Public score | Private score |
-| KE-T5-Encoder        | N                | 0.8556407448 | -             |
-| KLUE-BERT-base       | N                | 0.8692223439 | -             |
-| KLUE-RoBERTa-large   | N                | **0.8742606791** | 0.8307052124  | 
-| KLUE-RoBERTa-large   | Y                | 0.8736035049 | **0.8370565046**  |
+| KE-T5-Encoder        | N | 0.8556407448 | - |
+| KLUE-BERT-base       | N | 0.8692223439 | - |
+| KLUE-RoBERTa-large   | N | **0.8742606791** | 0.8307052124  | 
+| KLUE-RoBERTa-large   | Y | 0.8736035049 | **0.8370565046**  |
 
 
 ### **Instruction**
@@ -127,7 +127,6 @@
 <br/>
 
  위와 같은 기준으로 재번역대상을 정의하고 Papago로 재번역한뒤, 그럼에도 불구하고 제대로 번역되지 않는 문장들은 kakao brain에서 제공하는 Pororo를 이용해 번역하여 모든 train set에 대한 번역을 완료했습니다.
-
 <br/>
 
 ![case](https://user-images.githubusercontent.com/55730591/145703501-560ac6a6-b84d-4bc8-a05b-b3f577363e37.png)
